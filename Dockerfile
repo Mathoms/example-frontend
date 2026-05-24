@@ -8,7 +8,8 @@ EXPOSE 5001
 WORKDIR /usr/src/app
 
 # Send requests to backend. THIS NEEDS TO BE PRIOR TO BUILD/INSTALL STEPS
-ENV REACT_APP_BACKEND_URL=http://localhost:8080
+ARG REACT_APP_BACKEND_URL
+ENV REACT_APP_BACKEND_URL=$REACT_APP_BACKEND_URL
 
 # Copy te project files into the image
 COPY . .
